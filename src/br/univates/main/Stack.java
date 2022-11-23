@@ -1,5 +1,7 @@
 package br.univates.main;
 
+/// Source: http://sites.poli.usp.br/p/fabio.cozman/Didatico/Comp/Material/estruturas.pdf
+
 public class Stack {
 	
 	private int top;
@@ -39,6 +41,16 @@ public class Stack {
 		}
 	}
 
+	public void print() {
+		System.out.print("[");
+		for(int i = 0; i < queue.length; i++) {
+			if(queue[i] != null) {
+				System.out.print(queue[i] + ",");
+			}
+		}
+		System.out.print("]");
+	}
+
 	public void clear()
 	{
 		top = -1;
@@ -50,7 +62,7 @@ public class Stack {
 	}
 	
 	/**
-	 * If top is reached, double size
+	 * If top is reached, double the size
 	 */
 	private void doubleQueueSize() {
 		Object newQueue[] = new Object[2 * queue.length];
