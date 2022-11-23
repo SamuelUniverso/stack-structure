@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import br.univates.main.Stack;
 
-public class TestQueue {
+public class TesteStack {
 	
 	@Test
-	public void testQueue()
+	public void testStack()
 	{
 		Stack s = new Stack();
 		s.push("Frango com Catupiry");
