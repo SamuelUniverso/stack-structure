@@ -4,22 +4,12 @@ public class Stack {
 	
 	private int top;
 	private Object[] queue;
-	
+
 	private final int DEFAULT = 10;
-	
+
 	public Stack() {
 		queue = new Object[DEFAULT];
 		top = -1;
-	}
-	
-	public void clear()
-	{
-		top = -1;
-	}
-	
-	public int getSize()
-	{
-		return top +1;
 	}
 	
 	public void push(Object o) {
@@ -31,15 +21,13 @@ public class Stack {
 		
 	}
 	
-	/**
-	 * If top is reached, double size
-	 */
-	public void doubleQueueSize() {
-		Object newQueue[] = new Object[2 * queue.length];
-		for(int i = 0; i < queue.length; i++) {
-			newQueue[i] = queue[i];
+	public Object pop() {
+		if(top >= 0) {
+			return (queue[top--]);
 		}
-		queue = newQueue;
+		else {
+			return (null);
+		}
 	}
 	
 	public Object top() {
@@ -50,13 +38,25 @@ public class Stack {
 			return (null);
 		}
 	}
+
+	public void clear()
+	{
+		top = -1;
+	}
 	
-	public Object pop() {
-		if(top >= 0) {
-			return (queue[top--]);
+	public int getSize()
+	{
+		return top +1;
+	}
+	
+	/**
+	 * If top is reached, double size
+	 */
+	private void doubleQueueSize() {
+		Object newQueue[] = new Object[2 * queue.length];
+		for(int i = 0; i < queue.length; i++) {
+			newQueue[i] = queue[i];
 		}
-		else {
-			return (null);
-		}
+		queue = newQueue;
 	}
 }
