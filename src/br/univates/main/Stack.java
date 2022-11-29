@@ -5,27 +5,27 @@ package br.univates.main;
 public class Stack {
 	
 	private int top;
-	private Object[] queue;
+	private Object[] stack;
 
 	private final int DEFAULT = 10;
 
 	public Stack() {
-		queue = new Object[DEFAULT];
+		stack = new Object[DEFAULT];
 		top = -1;
 	}
 	
 	public void push(Object o) {
 		top++;
-		if(top == queue.length) {
+		if(top == stack.length) {
 			doubleQueueSize();
 		}
-		queue[top] = o;
+		stack[top] = o;
 		
 	}
 	
 	public Object pop() {
 		if(top >= 0) {
-			return (queue[top--]);
+			return (stack[top--]);
 		}
 		else {
 			return (null);
@@ -34,7 +34,7 @@ public class Stack {
 	
 	public Object top() {
 		if(top >= 0) {
-			return (queue[top]);
+			return (stack[top]);
 		}
 		else {
 			return (null);
@@ -43,9 +43,9 @@ public class Stack {
 
 	public void print() {
 		System.out.print("[");
-		for(int i = 0; i < queue.length; i++) {
-			if(queue[i] != null) {
-				System.out.print(queue[i] + ",");
+		for(int i = 0; i < stack.length; i++) {
+			if(stack[i] != null) {
+				System.out.print(stack[i] + ",");
 			}
 		}
 		System.out.print("]");
@@ -65,10 +65,10 @@ public class Stack {
 	 * If top is reached, double the size
 	 */
 	private void doubleQueueSize() {
-		Object newQueue[] = new Object[2 * queue.length];
-		for(int i = 0; i < queue.length; i++) {
-			newQueue[i] = queue[i];
+		Object newQueue[] = new Object[2 * stack.length];
+		for(int i = 0; i < stack.length; i++) {
+			newQueue[i] = stack[i];
 		}
-		queue = newQueue;
+		stack = newQueue;
 	}
 }
